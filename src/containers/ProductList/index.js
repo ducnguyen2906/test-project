@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Table, Modal, Button } from 'antd';
+import { Table } from 'antd';
 import './style.css';
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -10,21 +10,6 @@ function ProductList() {
   useEffect(() => {
     dispatch({ type: 'API_CALL_REQUEST' });
   }, []);
-
-  const dataSource = [
-    {
-      key: '1',
-      name: 'Mike',
-      age: 32,
-      address: '10 Downing Street',
-    },
-    {
-      key: '2',
-      name: 'John',
-      age: 42,
-      address: '10 Downing Street',
-    },
-  ];
 
   const columns = [
     {
@@ -52,7 +37,7 @@ function ProductList() {
   return (
     <div className="container">
       <h1>Product List</h1>
-      <Table dataSource={data} columns={columns} bordered />
+      <Table dataSource={data} columns={columns} bordered loading={fetching} />
     </div>
   );
 }

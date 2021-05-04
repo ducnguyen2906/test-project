@@ -16,7 +16,6 @@ function* workerSaga() {
   try {
     const response = yield call(fetchProduct);
     const data = response.data;
-    console.log(data);
     yield put({ type: 'API_CALL_SUCCESS', data });
   } catch (error) {
     yield put({ type: 'API_CALL_FAILURE', error });
