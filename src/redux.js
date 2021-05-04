@@ -6,7 +6,6 @@ const API_CALL_FAILURE = 'API_CALL_FAILURE';
 // reducer with initial state
 const initialState = {
   fetching: false,
-  dog: null,
   error: null,
   data: [],
 };
@@ -19,14 +18,12 @@ export function reducer(state = initialState, action) {
       return {
         ...state,
         fetching: false,
-        dog: action.dog,
         data: action.data,
       };
     case API_CALL_FAILURE:
       return {
         ...state,
         fetching: false,
-        dog: null,
         error: action.error,
         data: [],
       };
